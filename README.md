@@ -1,5 +1,3 @@
 # vusion_fed_learning
-Decentralized Federated Learning for honeypot models
 
-# testing
-hello
+Decentralized Federated Learning for honeypot models
