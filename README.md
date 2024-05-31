@@ -1,3 +1,3 @@
 # vusion_fed_learning
 
-Decentralized Federated Learning for honeypot models
+Decentralized Federated Learning for honeypot models.
