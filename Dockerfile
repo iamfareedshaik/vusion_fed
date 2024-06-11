@@ -18,16 +18,20 @@ RUN git clone https://github.com/iamfareedshaik/cowrie.git && \
     virtualenv cowrie-env && \
     . cowrie-env/bin/activate && \
     pip install --upgrade pip && \
-    pip install --upgrade -r requirements.txt
+    pip install --upgrade -r requirements.txt && \
+    pip install watchdog requests
 
 # Copy the default configuration
 RUN cp cowrie/etc/cowrie.cfg.dist cowrie/etc/cowrie.cfg
 
-# Expose ports
+# # Set up iptables for redirecting ports
+# USER root
+# RUN iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222 && \
+#     iptables -t nat -A PREROUTING -p tcp --dport 23 -j REDIRECT --to-port 2223
+
+
+# USER cowrie
 EXPOSE 2222 2223
 
-# Set the volume for log files
-VOLUME ["/home/admin/logfiles"]
-
-# Start Cowrie and copy log files to the specified directory
-CMD ["sh", "-c", "cowrie/bin/cowrie start -n && cp /home/cowrie/cowrie/var/log/cowrie/cowrie.json /home/admin/logfiles"]
+# Start Cowrie
+CMD ["cowrie/bin/cowrie", "start", "-n"]
