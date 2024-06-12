@@ -18,28 +18,19 @@ RUN git clone https://github.com/iamfareedshaik/cowrie.git && \
     virtualenv cowrie-env && \
     . cowrie-env/bin/activate && \
     pip install --upgrade pip && \
-    pip install --upgrade -r requirements.txt && \
-    pip install watchdog requests
+    pip install --upgrade -r requirements.txt
 
 # Copy the default configuration
 RUN cp cowrie/etc/cowrie.cfg.dist cowrie/etc/cowrie.cfg
 
-# Create the log directory and set permissions
-RUN mkdir -p /home/cowrie/cowrie/var/log/cowrie && \
-    chmod -R 755 /home/cowrie/cowrie/var/log/cowrie
+# # Set up iptables for redirecting ports
+# USER root
+# RUN iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222 && \
+#     iptables -t nat -A PREROUTING -p tcp --dport 23 -j REDIRECT --to-port 2223
 
-# Copy the honeypotScript.py into the container
-COPY honeypotScript.py /home/cowrie/honeypotScript.py
 
-# Create a script to run both Cowrie and the Python script
-RUN echo '#!/bin/bash\n\
-. /home/cowrie/cowrie/cowrie-env/bin/activate\n\
-cowrie/bin/cowrie start -n &\n\
-python3 /home/cowrie/honeypotScript.py\n' > /home/cowrie/start.sh && \
-    chmod +x /home/cowrie/start.sh
-
-# Expose ports
+# USER cowrie
 EXPOSE 2222 2223
 
-# Set the entry point to the script
-ENTRYPOINT ["/home/cowrie/start.sh"]
+# Start Cowrie
+CMD ["cowrie/bin/cowrie", "start", "-n"]
