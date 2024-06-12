@@ -23,6 +23,10 @@ RUN git clone https://github.com/iamfareedshaik/cowrie.git && \
 # Copy the default configuration
 RUN cp cowrie/etc/cowrie.cfg.dist cowrie/etc/cowrie.cfg
 
+USER root
+RUN chown -R cowrie:cowrie /home/cowrie/cowrie/var/log/cowrie
+
+USER cowrie
 # # Set up iptables for redirecting ports
 # USER root
 # RUN iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222 && \
