@@ -19,10 +19,18 @@ RUN git clone https://github.com/iamfareedshaik/cowrie.git && \
     . cowrie-env/bin/activate && \
     pip install --upgrade pip && \
     pip install --upgrade -r requirements.txt
+    pip install --upgrade -r requirements.txt
 
 # Copy the default configuration
 RUN cp cowrie/etc/cowrie.cfg.dist cowrie/etc/cowrie.cfg
 
+# # Set up iptables for redirecting ports
+# USER root
+# RUN iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222 && \
+#     iptables -t nat -A PREROUTING -p tcp --dport 23 -j REDIRECT --to-port 2223
+
+
+# USER cowrie
 # # Set up iptables for redirecting ports
 # USER root
 # RUN iptables -t nat -A PREROUTING -p tcp --dport 22 -j REDIRECT --to-port 2222 && \
