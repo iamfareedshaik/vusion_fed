@@ -19,7 +19,6 @@ RUN git clone https://github.com/iamfareedshaik/cowrie.git && \
     . cowrie-env/bin/activate && \
     pip install --upgrade pip && \
     pip install --upgrade -r requirements.txt
-    pip install --upgrade -r requirements.txt
 
 # Copy the default configuration
 RUN cp cowrie/etc/cowrie.cfg.dist cowrie/etc/cowrie.cfg
