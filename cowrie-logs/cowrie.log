@@ -1,0 +1,57 @@
+2024-06-12T17:36:45.143977Z [-] Python Version 3.12.3 (main, Apr 10 2024, 05:33:47) [GCC 13.2.0]
+2024-06-12T17:36:45.144051Z [-] Twisted Version 24.3.0
+2024-06-12T17:36:45.144080Z [-] Cowrie Version 2.5.0
+2024-06-12T17:36:45.180577Z [-] Loaded output engine: jsonlog
+2024-06-12T17:36:45.225715Z [twisted.scripts._twistd_unix.UnixAppLogger#info] twistd 24.3.0 (/home/cowrie/cowrie/cowrie-env/bin/python 3.12.3) starting up.
+2024-06-12T17:36:45.228807Z [twisted.scripts._twistd_unix.UnixAppLogger#info] reactor class: twisted.internet.epollreactor.EPollReactor.
+2024-06-12T17:36:45.233096Z [-] CowrieSSHFactory starting on 2222
+2024-06-12T17:36:45.236390Z [cowrie.ssh.factory.CowrieSSHFactory#info] Starting factory <cowrie.ssh.factory.CowrieSSHFactory object at 0x7f074c9fcd40>
+2024-06-12T17:36:45.240071Z [-] Generating new RSA keypair...
+2024-06-12T17:36:45.407271Z [-] Generating new ECDSA keypair...
+2024-06-12T17:36:45.421751Z [-] Generating new ed25519 keypair...
+2024-06-12T17:36:45.433482Z [-] Ready to accept SSH connections
+2024-06-12T17:36:45.452203Z [-] HoneyPotTelnetFactory starting on 2223
+2024-06-12T17:36:45.456551Z [cowrie.telnet.factory.HoneyPotTelnetFactory#info] Starting factory <cowrie.telnet.factory.HoneyPotTelnetFactory object at 0x7f074c9fc050>
+2024-06-12T17:36:45.466253Z [-] Ready to accept Telnet connections
+2024-06-12T20:32:23.166488Z [cowrie.ssh.factory.CowrieSSHFactory] No moduli, no diffie-hellman-group-exchange-sha1
+2024-06-12T20:32:23.239488Z [cowrie.ssh.factory.CowrieSSHFactory] No moduli, no diffie-hellman-group-exchange-sha256
+2024-06-12T20:32:23.297951Z [cowrie.ssh.factory.CowrieSSHFactory] New connection: 192.168.128.1:51742 (192.168.128.2:2222) [session: e3ad71214876]
+2024-06-12T20:32:23.488065Z [HoneyPotSSHTransport,0,192.168.128.1] Remote SSH version: SSH-2.0-PuTTY_Release_0.81
+2024-06-12T20:32:23.624106Z [HoneyPotSSHTransport,0,192.168.128.1] SSH client hassh fingerprint: 1dd4d89cd6b7a1f7b06acf808260c130
+2024-06-12T20:32:24.096254Z [cowrie.ssh.transport.HoneyPotSSHTransport#debug] kex alg=b'curve25519-sha256' key alg=b'ssh-ed25519'
+2024-06-12T20:32:24.101655Z [cowrie.ssh.transport.HoneyPotSSHTransport#debug] outgoing: b'aes256-ctr' b'hmac-sha2-256' b'none'
+2024-06-12T20:32:24.104748Z [cowrie.ssh.transport.HoneyPotSSHTransport#debug] incoming: b'aes256-ctr' b'hmac-sha2-256' b'none'
+2024-06-12T20:32:25.974695Z [cowrie.ssh.transport.HoneyPotSSHTransport#debug] NEW KEYS
+2024-06-12T20:32:26.014529Z [cowrie.ssh.transport.HoneyPotSSHTransport#debug] starting service b'ssh-userauth'
+2024-06-12T20:32:27.871192Z [cowrie.ssh.userauth.HoneyPotSSHUserAuthServer#debug] b'root' trying auth b'none'
+2024-06-12T20:32:28.573813Z [cowrie.ssh.userauth.HoneyPotSSHUserAuthServer#debug] b'root' trying auth b'password'
+2024-06-12T20:32:28.580723Z [HoneyPotSSHTransport,0,192.168.128.1] Could not read etc/userdb.txt, default database activated
+2024-06-12T20:32:28.587250Z [HoneyPotSSHTransport,0,192.168.128.1] login attempt [b'root'/b''] succeeded
+2024-06-12T20:32:28.672617Z [HoneyPotSSHTransport,0,192.168.128.1] Initialized emulated server as architecture: linux-x64-lsb
+2024-06-12T20:32:28.707750Z [cowrie.ssh.userauth.HoneyPotSSHUserAuthServer#debug] b'root' authenticated with b'password'
+2024-06-12T20:32:28.712449Z [cowrie.ssh.transport.HoneyPotSSHTransport#debug] starting service b'ssh-connection'
+2024-06-12T20:32:28.721333Z [cowrie.ssh.connection.CowrieSSHConnection#debug] got channel b'session' request
+2024-06-12T20:32:28.727297Z [cowrie.ssh.session.HoneyPotSSHSession#info] channel open
+2024-06-12T20:32:28.954104Z [twisted.conch.ssh.session#info] Handling pty request: b'xterm' (24, 80, 0, 0)
+2024-06-12T20:32:28.958939Z [SSHChannel session (0) on SSHService b'ssh-connection' on HoneyPotSSHTransport,0,192.168.128.1] Terminal Size: 80 24
+2024-06-12T20:32:28.999383Z [twisted.conch.ssh.session#info] Getting shell
+2024-06-12T20:32:30.884843Z [HoneyPotSSHTransport,0,192.168.128.1] CMD: ls
+2024-06-12T20:32:30.909361Z [HoneyPotSSHTransport,0,192.168.128.1] Command found: ls 
+2024-06-12T20:35:07.625080Z [HoneyPotSSHTransport,0,192.168.128.1] CMD: ls
+2024-06-12T20:35:07.646023Z [HoneyPotSSHTransport,0,192.168.128.1] Command found: ls 
+2024-06-12T20:35:09.431298Z [HoneyPotSSHTransport,0,192.168.128.1] CMD: ls
+2024-06-12T20:35:09.445822Z [HoneyPotSSHTransport,0,192.168.128.1] Command found: ls 
+2024-06-12T20:35:12.154776Z [HoneyPotSSHTransport,0,192.168.128.1] CMD: cd ..
+2024-06-12T20:35:12.166947Z [HoneyPotSSHTransport,0,192.168.128.1] Command found: cd ..
+2024-06-12T20:35:28.718316Z [-] Timeout reached in HoneyPotSSHTransport
+2024-06-12T20:35:28.730967Z [HoneyPotSSHTransport,0,192.168.128.1] Closing TTY Log: var/lib/cowrie/tty/8f9d1ebbe76c0cbd7e8b2819139ba88b8fccb632deb38eacfad5f07d608bc9db after 179 seconds
+2024-06-12T20:35:28.804216Z [HoneyPotSSHTransport,0,192.168.128.1] avatar root logging out
+2024-06-12T20:35:28.805696Z [cowrie.ssh.transport.HoneyPotSSHTransport#info] connection lost
+2024-06-12T20:35:28.806636Z [HoneyPotSSHTransport,0,192.168.128.1] Connection lost after 185 seconds
+2024-06-12T22:12:44.106804Z [-] Received SIGTERM, shutting down.
+2024-06-12T22:12:44.209137Z [-] (TCP Port 2223 Closed)
+2024-06-12T22:12:44.222588Z [cowrie.telnet.factory.HoneyPotTelnetFactory#info] Stopping factory <cowrie.telnet.factory.HoneyPotTelnetFactory object at 0x7f074c9fc050>
+2024-06-12T22:12:44.229216Z [-] (TCP Port 2222 Closed)
+2024-06-12T22:12:44.233665Z [cowrie.ssh.factory.CowrieSSHFactory#info] Stopping factory <cowrie.ssh.factory.CowrieSSHFactory object at 0x7f074c9fcd40>
+2024-06-12T22:12:44.247730Z [-] Main loop terminated.
+2024-06-12T22:12:44.274003Z [twisted.scripts._twistd_unix.UnixAppLogger#info] Server Shut Down.

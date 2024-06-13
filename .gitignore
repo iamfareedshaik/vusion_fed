@@ -1,0 +1,7 @@
+# Ignore virtual environments
+.venv/
+.env
+FrankTesting/
+__pycache__/
+tmpfs/
+.DS_Store
